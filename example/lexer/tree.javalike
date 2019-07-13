@@ -1,0 +1,8 @@
+class Node {
+  private Node left;
+  private Node right;
+  private int val;
+}
+
+void javalike2019 main() {
+}

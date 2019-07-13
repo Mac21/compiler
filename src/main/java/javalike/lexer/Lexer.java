@@ -1,4 +1,4 @@
-package kxi.lexer;
+package javalike.lexer;
 
 public class Lexer {
 }

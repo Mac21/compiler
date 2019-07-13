@@ -1,4 +1,4 @@
-package kxi.parser;
+package javalike.parser;
 
 public class Parser {
 }
