@@ -1,7 +1,10 @@
 package javalike;
 
+import javalike.lexer.Token;
 import javalike.parser.Parser;
 import javalike.lexer.Lexer;
+
+import java.io.DataInputStream;
 import java.lang.System;
 import java.io.FileReader;
 import java.io.File;
@@ -16,13 +19,17 @@ public class JavaLike {
           throw new Exception("Input source file required");
       }
 
-      File sourceFile = new File(args[0]);
-      System.out.println(sourceFile.getName());
-
       FileReader reader = new FileReader(args[0]);
-      while (reader.ready()) {
-          int c = reader.read();
-          System.out.println((char) c);
+      //DataInputStream input = new DataInputStream(reader);
+
+      Lexer l = new Lexer(reader);
+      while (true) {
+          Token tok = l.scan();
+          System.out.println(tok.toString());
+          System.out.println(l.getLineNumber());
+          if (tok == Token.EOF) {
+            break;
+          }
       }
   }
 }
